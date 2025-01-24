@@ -331,83 +331,144 @@
 
 
 
-## Practice problems
+# ## Practice problems
 
-#1
-fruits= {
-  "apple": 100,
-  "banana" : 50,
-  "cherry": 75
-}
+# #1
+# fruits= {
+#   "apple": 100,
+#   "banana" : 50,
+#   "cherry": 75
+# }
 
 
-fruits['date'] = 120
-fruits['apple'] = 110
+# fruits['date'] = 120
+# fruits['apple'] = 110
 
-del fruits['banana']
+# del fruits['banana']
 
-print(fruits)
+# print(fruits)
 
-#2
-for key, value in fruits.items():
-  print(f'{key}: {value}')
+# #2
+# for key, value in fruits.items():
+#   print(f'{key}: {value}')
 
-#3
+# #3
+# # def string_to_dict_acc_to_freq(my_string):
+# #   # new_string =  my_string.lower().split(' ')
+# #   # print(new_string)
+# #   words = {}
+# #   for word in new_string:
+# #     if word in words:
+# #       words[word] = words.get(word) + 1
+# #     else:
+# #       words[word] = 1
+# #   return words
+
 # def string_to_dict_acc_to_freq(my_string):
-#   # new_string =  my_string.lower().split(' ')
-#   # print(new_string)
 #   words = {}
-#   for word in new_string:
-#     if word in words:
-#       words[word] = words.get(word) + 1
-#     else:
-#       words[word] = 1
+#   for word in my_string.lower().split(' '):
+#     words[word] = words.get(word, 0) + 1
 #   return words
 
-def string_to_dict_acc_to_freq(my_string):
-  words = {}
-  for word in my_string.lower().split(' '):
-    words[word] = words.get(word, 0) + 1
-  return words
+
+# print(string_to_dict_acc_to_freq('Hello world hello'))
 
 
-print(string_to_dict_acc_to_freq('Hello world hello'))
+# #4
 
+# library = {
+#     "Fiction": {"books": ["1984", "Brave New World"], "count": 2},
+#     "Non-Fiction": {"books": ["Sapiens", "Educated"], "count": 2}
+# }
 
-#4
+# library['Fiction']['books'].append('Summer Love')
+# print(library['Fiction']['books'])
+# library['Fiction']['count'] = len(library['Fiction']['books'])
 
-library = {
-    "Fiction": {"books": ["1984", "Brave New World"], "count": 2},
-    "Non-Fiction": {"books": ["Sapiens", "Educated"], "count": 2}
-}
-
-library['Fiction']['books'].append('Summer Love')
-print(library['Fiction']['books'])
-library['Fiction']['count'] = len(library['Fiction']['books'])
-
-print(library)
+# print(library)
 
 
 
-#5
-teacher = {
-  "name": 'Sabin',
-  "salary": 100000,
-}
+# #5
+# teacher = {
+#   "name": 'Sabin',
+#   "salary": 100000,
+# }
 
-student = {
-  "name": "Yaman",
-  "age": 19
-}
+# student = {
+#   "name": "Yaman",
+#   "age": 19
+# }
 
-# adds the key value pair of students into teacher, and if found similar keys, student wala will overwrite
-teacher.update(student)
-# merged = {**teacher, **student}
-merged  = teacher | student
+# # adds the key value pair of students into teacher, and if found similar keys, student wala will overwrite
+# teacher.update(student)
+# # merged = {**teacher, **student}
+# merged  = teacher | student
 
-# result
-print(teacher)
-print(merged)
+# # result
+# print(teacher)
+# print(merged)
+
+
+## comprehensions
+
+#  concise way to create loops dicts, sets without using loops. highly readable and efficient
+
+#list comprehensions
+
+#expresssion for item in iterable
+squared_numbers = [x**2 for x in range(10)]
+print(squared_numbers)
+
+#item for item in iterable if condition
+even_numbers = [x for x in range(20) if x% 2 == 0]
+print(even_numbers)
+
+# nested loops
+pairs =[(x,y, z) for x in range(2) for y in range(2) for z in range(2)]
+print(pairs)
+
+## set comprehensions
+#syntax expression for item in iterable
+
+unique_squares= {x**2 for x in range(-10, 10)}
+print(unique_squares)
+
+
+## dictionary comprehesions
+# syntax: key_expression: value_expression for item in iterable
+
+sqaures_dict = {x: x**2 for x in range(10)}
+print(sqaures_dict)
+
+even_dict = {x: x**2 for x in range(10) if x % 2 == 0}
+print(even_dict) 
+
+
+
+## nested comprehensions
+
+#2D list
+
+matrix = [[j for j in range(5)] for i in range(3)]
+print(matrix)
+
+## Practice Questions
+
+cubes = [x**3 for x in range(1, 30) if x % 3 ==0 ]
+print(cubes)
+
+words = ["sabin", "rabin", "prabin", "babin", "nabin", "kabin", "ishikaa"]
+
+unique_length = {len(x) for x in words}
+print(unique_length)
+
+
+
+factorials = {x: i*x for x in range(1, 6) for i in range(1, x)}
+print(factorials)
+
+
 
 
 
